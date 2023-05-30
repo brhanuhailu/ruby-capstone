@@ -22,8 +22,6 @@ class App
   end
 
   def create_book
-    puts 'Enter genre'
-    genre = gets.chomp
     puts 'Enter author'
     author = gets.chomp
     puts 'Enter published date (YYYY-MM-DD))'
@@ -37,7 +35,7 @@ class App
     puts 'Enter label color'
     label_color = gets.chomp
     label = Label.new(label_title, label_color)
-    book = Book.new(genre, author, published_date, publisher, cover_state, label)
+    book = Book.new(author, published_date, publisher, cover_state, label)
     @books << book
     @labels << label
     puts 'Book created successfully'
