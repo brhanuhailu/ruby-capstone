@@ -12,8 +12,8 @@ class App
     @store = PreserveData.new
     @books = File.empty?('./store/books.json') ? [] : @store.load_data('./store/books.json')
     @labels = File.empty?('./store/labels.json') ? [] : @store.load_data('./store/labels.json')
-    @games = []
-    @authors = []
+    @games = File.empty?('./store/games.json') ? [] : @store.load_data('./store/games.json')
+    @authors = File.empty?('./store/authors.json') ? [] : @store.load_data('./store/authors.json')
   end
 
   def list_books
@@ -73,11 +73,12 @@ class App
     else
       puts '=================================================================:'
       puts 'List of Games:'
+      puts '=================================================================:'
       puts 'ID - Game Name - Last Played Date - Published Date - Multiplayer'
       @games.each do |game|
-        puts "#{game.id} - #{game.game_name} - #{game.last_played_at} - #{game.publish_date} - #{game.multiplayer}"
-        puts '=================================================================:'
+        puts "#{game['id']} - #{game['game_name']} - #{game['last_played_at']} - #{game['publish_date']} - #{game['multiplayer']}"
       end
+      puts '=================================================================:'
     end
   end
 
@@ -87,11 +88,12 @@ class App
     else
       puts '=============================================:'
       puts 'List of Authors:'
+      puts '=============================================:'
       puts 'ID - First Name - Last Name'
       @authors.each do |author|
-        puts "#{author.id} - #{author.first_name} - #{author.last_name}"
-        puts '=============================================:'
+        puts "#{author['id']} - #{author['first_name']} - #{author['last_name']}"
       end
+      puts '=============================================:'
     end
   end
 
@@ -108,11 +110,33 @@ class App
     first_name = gets.chomp
     puts 'Enter last name'
     last_name = gets.chomp
-    author = Author.new(first_name, last_name)
+    author = create_author(first_name, last_name)
     @authors << author
-    game = Game.new(game_name, last_played_at, publish_date, multiplayer)
+    @store.save_data(@authors, './store/authors.json')
+    game = create_game_object(game_name, last_played_at, publish_date, multiplayer)
     @games << game
+    @store.save_data(@games, './store/games.json')
     puts 'Game is created successfully'
+  end
+
+  def create_author (first_name, last_name)
+    author = Author.new(first_name, last_name)
+    {
+      'id' => author.id,
+      'first_name' => author.first_name,
+      'last_name' => author.last_name
+    }
+  end
+
+  def create_game_object(game_name, last_played_at, publish_date, multiplayer)
+    game = Game.new(game_name, last_played_at, publish_date, multiplayer)
+    {
+      'id' => game.id,
+      'game_name' => game.game_name,
+      'last_played_at' => game.last_played_at,
+      'publish_date' => game.publish_date,
+      'multiplayer' => game.multiplayer
+    }
   end
 
   def exit_app
