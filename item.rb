@@ -1,12 +1,14 @@
-class Item
-  attr_reader :id, :archived
-  attr_accessor :genre, :author, :label, :published_date
+require_relative 'label'
 
-  def iniliaze(genre, author, label, published_date)
+class Item
+  attr_reader :id, :archived, :label
+  attr_accessor :genre, :author, :published_date
+
+  def initialize(genre, author, published_date)
     @id = Random.rand(1..1000)
     @genre = genre
     @author = author
-    @label = label
+    @label = nil
     @published_date = published_date
     @archived = false
   end
@@ -18,5 +20,10 @@ class Item
 
   def move_to_archive
     @archived = true if can_be_archived?
+  end
+
+  def label=(label)
+    @label = label
+    label.add_item(self)
   end
 end
