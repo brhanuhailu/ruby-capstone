@@ -1,7 +1,12 @@
 require_relative 'app'
 
 class MainMenu
-  @app = App.new
+  attr_reader :app
+
+  def initialize(app)
+    @app = app
+  end
+
   def user_options(choice)
     menu_options = {
       1 => method(:list_books),
@@ -13,6 +18,7 @@ class MainMenu
       7 => method(:create_book),
       8 => method(:create_music),
       9 => method(:create_games),
+      10 => method(:create_label),
       0 => method(:exit_app)
     }
     if menu_options.key?(choice)
@@ -34,6 +40,7 @@ class MainMenu
     puts '7. Create a book'
     puts '8. Create a music album'
     puts '9. Create a game'
+    puts '10. Create a label'
     puts '0. Exit'
   end
 
@@ -73,13 +80,18 @@ class MainMenu
     app.create_games
   end
 
+  def create_label(app)
+    app.create_label
+  end
+
   def exit_app(app)
     app.exit_app
   end
 end
 
 def main
-  main_menu = MainMenu.new
+  app = App.new
+  main_menu = MainMenu.new(app)
   loop do
     main_menu.display
     choice = gets.chomp.to_i
