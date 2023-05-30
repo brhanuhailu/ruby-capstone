@@ -1,3 +1,4 @@
+
 require_relative 'book'
 require_relative 'label'
 require_relative 'item'
@@ -99,3 +100,73 @@ class App
     exit
   end
 end
+
+require_relative 'book'
+require_relative 'label'
+require_relative './store/preserve_data'
+require 'json'
+
+class App
+  def initialize
+    @store = PreserveData.new
+    @books = File.empty?('./store/books.json') ? [] : @store.load_data('./store/books.json')
+    @labels = File.empty?('./store/labels.json') ? [] : @store.load_data('./store/labels.json')
+  end
+
+  def list_books
+    @books.each do |book|
+      puts "#{book['id']} - #{book['author']} - #{book['published_date']}"
+    end
+  end
+
+  def list_labels
+    @labels.each do |label|
+      puts "#{label['id']} - #{label['title']} - #{label['color']}"
+    end
+  end
+
+  def create_book
+    puts 'Enter author'
+    author = gets.chomp
+    puts 'Enter published date (YYYY-MM-DD))'
+    published_date = gets.chomp
+    puts 'Enter publisher'
+    publisher = gets.chomp
+    puts 'Enter cover state'
+    cover_state = gets.chomp
+    puts 'Enter label title'
+    label_title = gets.chomp
+    puts 'Enter label color'
+    label_color = gets.chomp
+    label = create_label(label_title, label_color)
+    book = create_book_object(author, published_date, publisher, cover_state, label)
+    @books << book
+    @labels << label
+    @store.save_data(@books, './store/books.json')
+    @store.save_data(@labels, './store/labels.json')
+    puts 'Book created successfully'
+  end
+
+  def create_label(title, color)
+    label = Label.new(title, color)
+    { 'id' => label.id, 'title' => label.title, 'color' => label.color }
+  end
+
+  def create_book_object(author, published_date, publisher, cover_state, label)
+    book = Book.new(author, published_date, publisher, cover_state, label)
+    {
+      'id' => book.id,
+      'author' => book.author,
+      'published_date' => book.published_date,
+      'publisher' => book.publisher,
+      'cover_state' => book.cover_state,
+      'label' => book.label
+    }
+  end
+
+  def exit_app
+    puts 'Thanks for using the app!'
+    exit
+  end
+end
+

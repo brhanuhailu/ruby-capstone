@@ -1,3 +1,4 @@
+
 <a name="readme-top"></a>
 
 <div align="center">
@@ -250,5 +251,3 @@ we would like to thank Microverse
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](https://github.com/brhanuhailu/ruby-capstone/blob/dev/LICENSE) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
