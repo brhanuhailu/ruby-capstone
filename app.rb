@@ -5,19 +5,20 @@ require 'json'
 
 class App
   def initialize
-    @books = []
-    @labels = []
+    @store = PreserveData.new
+    @books = File.empty?('./store/books.json') ? [] : @store.load_data('./store/books.json')
+    @labels = File.empty?('./store/labels.json') ? [] : @store.load_data('./store/labels.json')
   end
 
   def list_books
     @books.each do |book|
-      puts "#{book.id} - #{book.genre} - #{book.author} - #{book.published_date}"
+      puts "#{book['id']} - #{book['author']} - #{book['published_date']}"
     end
   end
 
   def list_labels
     @labels.each do |label|
-      puts "#{label.id} - #{label.title} - #{label.color}"
+      puts "#{label['id']} - #{label['title']} - #{label['color']}"
     end
   end
 
@@ -34,11 +35,30 @@ class App
     label_title = gets.chomp
     puts 'Enter label color'
     label_color = gets.chomp
-    label = Label.new(label_title, label_color)
-    book = Book.new(author, published_date, publisher, cover_state, label)
+    label = create_label(label_title, label_color)
+    book = create_book_object(author, published_date, publisher, cover_state, label)
     @books << book
     @labels << label
+    @store.save_data(@books, './store/books.json')
+    @store.save_data(@labels, './store/labels.json')
     puts 'Book created successfully'
+  end
+
+  def create_label(title, color)
+    label = Label.new(title, color)
+    { 'id' => label.id, 'title' => label.title, 'color' => label.color }
+  end
+
+  def create_book_object(author, published_date, publisher, cover_state, label)
+    book = Book.new(author, published_date, publisher, cover_state, label)
+    {
+      'id' => book.id,
+      'author' => book.author,
+      'published_date' => book.published_date,
+      'publisher' => book.publisher,
+      'cover_state' => book.cover_state,
+      'label' => book.label
+    }
   end
 
   def exit_app
