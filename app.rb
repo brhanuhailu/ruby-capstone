@@ -119,7 +119,7 @@ class App
     puts 'Game is created successfully'
   end
 
-  def create_author (first_name, last_name)
+  def create_author(first_name, last_name)
     author = Author.new(first_name, last_name)
     {
       'id' => author.id,
