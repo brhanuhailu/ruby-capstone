@@ -21,6 +21,6 @@ class Game < Item
 
   def can_be_archived?
     age_in_years = Time.now.year - @last_played_at.year
-    age_in_years >= 10
+    age_in_years >= 2
   end
 end
