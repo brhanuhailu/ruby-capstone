@@ -1,7 +1,12 @@
 require_relative 'app'
 
 class MainMenu
-  @app = App.new
+  attr_reader :app
+
+  def initialize(app)
+    @app = app
+  end
+
   def user_options(choice)
     menu_options = {
       1 => method(:list_books),
@@ -79,7 +84,8 @@ class MainMenu
 end
 
 def main
-  main_menu = MainMenu.new
+  app = App.new
+  main_menu = MainMenu.new(app)
   loop do
     main_menu.display
     choice = gets.chomp.to_i
