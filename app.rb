@@ -1,12 +1,17 @@
 require_relative 'book'
 require_relative 'label'
-require_relative './store/preserve_data'
+require_relative 'item'
+require_relative 'game'
+require_relative 'author'
 require 'json'
+require 'date'
 
 class App
   def initialize
     @books = []
     @labels = []
+    @games = []
+    @authors = []
   end
 
   def list_books
@@ -39,6 +44,54 @@ class App
     @books << book
     @labels << label
     puts 'Book created successfully'
+  end
+
+  def list_games
+    if @games.empty?
+      puts 'No games found in the system currently'
+    else
+      puts '=================================================================:'
+      puts 'List of Games:'
+      puts 'ID - Game Name - Last Played Date - Published Date - Multiplayer'
+      @games.each do |game|
+        puts "#{game.id} - #{game.game_name} - #{game.last_played_at} - #{game.publish_date} - #{game.multiplayer}"
+        puts '=================================================================:'
+      end
+    end
+  end
+
+  def list_authors
+    if @authors.empty?
+      puts 'No authors found in the system currently'
+    else
+      puts '=============================================:'
+      puts 'List of Authors:'
+      puts 'ID - First Name - Last Name'
+      @authors.each do |author|
+        puts "#{author.id} - #{author.first_name} - #{author.last_name}"
+        puts '=============================================:'
+      end
+    end
+  end
+
+  def create_games
+    puts 'write Name of the game'
+    game_name = gets.chomp
+    puts 'Write last played date (YYYY-MM-DD))'
+    last_played_at = gets.chomp
+    puts 'Enter published date (YYYY-MM-DD))'
+    publish_date = gets.chomp
+    puts 'Enter multiplayer'
+    multiplayer = gets.chomp
+    puts 'Enter first name'
+    first_name = gets.chomp
+    puts 'Enter last name'
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    @authors << author
+    game = Game.new(game_name, last_played_at, publish_date, multiplayer)
+    @games << game
+    puts 'Game is created successfully'
   end
 
   def exit_app
