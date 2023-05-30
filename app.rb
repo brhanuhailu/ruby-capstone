@@ -1,5 +1,7 @@
 require_relative 'book'
 require_relative 'label'
+require_relative './store/preserve_data'
+require 'json'
 
 class App
   def initialize
@@ -30,19 +32,15 @@ class App
     publisher = gets.chomp
     puts 'Enter cover state'
     cover_state = gets.chomp
-    book = Book.new(genre, author, published_date, publisher, cover_state)
+    puts 'Enter label title'
+    label_title = gets.chomp
+    puts 'Enter label color'
+    label_color = gets.chomp
+    label = Label.new(label_title, label_color)
+    book = Book.new(genre, author, published_date, publisher, cover_state, label)
     @books << book
-    puts 'Book created successfully'
-  end
-
-  def create_label
-    puts 'Enter title'
-    title = gets.chomp
-    puts 'Enter color'
-    color = gets.chomp
-    label = Label.new(title, color)
     @labels << label
-    puts 'Label created successfully'
+    puts 'Book created successfully'
   end
 
   def exit_app
