@@ -19,5 +19,19 @@
     "last_played_at": "1-2-2023",
     "publish_date": "2023-06-02",
     "multiplayer": "mcccccc"
+  },
+  {
+    "id": 59,
+    "game_name": "merseir",
+    "last_played_at": "1-2-2023",
+    "publish_date": "2023-02-02",
+    "multiplayer": true
+  },
+  {
+    "id": 567,
+    "game_name": "abeb",
+    "last_played_at": "2023-02-05",
+    "publish_date": "2022-04-01",
+    "multiplayer": true
   }
 ]
