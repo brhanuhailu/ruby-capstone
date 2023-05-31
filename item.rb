@@ -1,3 +1,4 @@
+require 'date'
 require_relative 'label'
 
 class Item
@@ -14,7 +15,7 @@ class Item
   end
 
   def can_be_archived?
-    age_in_years = Time.now.year - @published_date.year
+    age_in_years = Time.now.year - Date.parse(@published_date).year
     age_in_years >= 10
   end
 
