@@ -104,8 +104,8 @@ class App
     last_played_at = gets.chomp
     puts 'Enter published date (YYYY-MM-DD))'
     publish_date = gets.chomp
-    puts 'Enter multiplayer'
-    multiplayer = gets.chomp
+    puts 'Enter multiplayer (yes/no)'
+    multiplayer = gets.chomp.downcase == 'yes'
     puts 'Enter first name'
     first_name = gets.chomp
     puts 'Enter last name'
