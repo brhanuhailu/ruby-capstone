@@ -11,7 +11,7 @@ RSpec.describe Game do
     end
 
     it 'sets the last_played_at' do
-      expect(game.last_played_at).to eq('2022-01-01')
+      expect(game.last_played_at).to eq(Date.parse('2022-01-01'))
     end
 
     it 'sets the publish_date' do
@@ -34,7 +34,7 @@ RSpec.describe Game do
 
       it 'does not move the game to archive' do
         game.move_to_archive
-        expect(game.archived).to be nil
+        expect(game.archived).to be false
       end
     end
   end
