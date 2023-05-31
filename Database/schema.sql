@@ -21,3 +21,18 @@ CREATE TABLE book (
     genre TEXT
 );
 
+-- create game table
+CREATE TABLE game (
+    id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    published_date DATE,
+    multiplayer BOOLEAN NOT NULL DEFAULT FALSE,
+    last_played_at DATE,
+    author_id int REFERENCES author(id),
+);
+
+-- create author table
+CREATE TABLE author (
+    id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+);
