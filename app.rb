@@ -205,7 +205,6 @@ class App
     end
     update_data(array, './store/genres.json')
   end
-end
 
   def exit_app
     puts 'Thanks for using the app!'
