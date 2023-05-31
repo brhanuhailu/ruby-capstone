@@ -1,10 +1,8 @@
-require_relative '../author'
-require_relative '../item'
 
 RSpec.describe Author do
   describe '#add_author' do
     let(:author) { Author.new('John', 'Doe') }
-    let(:item) { Item.new('Example Item') }
+    let(:item) { Item.new('gameone', 'hall', '2022-1-2', nil) }
 
     it 'adds an item to the author' do
       author.add_author(item)
