@@ -1,3 +1,4 @@
+
 <a name="readme-top"></a>
 
 <div align="center">
@@ -62,9 +63,10 @@
 
 > Describe between 1-3 key features of the application.
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **[Add Music optiion for end user]**
+- **[Library Data Keeping]**
+- **[Add game optiion for end users]**
+- **[Add Database to store the whole data]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,9 +74,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+> Not applicable.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,6 +174,18 @@ Example:
 - Twitter: [@recillahk](https://twitter.com/danmatama)
 - LinkedIn: [Recillah Khamala](https://www.linkedin.com/in/danielmatama-mwebesa/)
 
+👤 **Brhanu Hailu**
+
+- GitHub: [@brhanuhailu](https://github.com/brhanuhailu)
+- Twitter: [@tigrayfurtune](https://twitter.com/TigrayCountry)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/brhanu-hailu-85578a246/)
+
+👤 **Yodit Abebe**
+
+- GitHub: [@yodit93](https://github.com/yodit93)
+- Twitter: [@@yodtwit](https://twitter.com/yodtwit)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yodit-abebe-ayalew/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -182,9 +194,9 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[Add unit tests]**
+- [ ] **[Create databases]**
+- [ ] **[Create file for persist data]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,7 +206,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/brhanuhailu/ruby-capstone/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -214,7 +226,7 @@ If you like this project...
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+we would like to thank Microverse
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -238,6 +250,4 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+This project is [MIT](https://github.com/brhanuhailu/ruby-capstone/blob/dev/LICENSE) licensed.
