@@ -1,34 +1,36 @@
-require 'rspec'
-require 'json'
+require 'spec_helper'
+require_relative '../src/music/genre'
 
-describe Genre do
-  let(:genre_name) { 'Comedy' }
-  let(:item) { double('Item') }
-  let(:genre) { Genre.new(genre_name) }
+RSpec.describe Genre do
+  let(:name) { 'Action' }
+  let(:id) { 42 }
+  item = Item.new('genre', 'name', 'published_date')
+
+  subject { Genre.new(name, id: id) }
 
   describe '#initialize' do
-    it 'should set the name' do
-      expect(genre.name).to eq(genre_name)
+    it 'sets the name' do
+      expect(subject.name).to eq(name)
     end
 
-    it 'should generate an id' do
-      expect(genre.id).to be_a(Integer)
+    it 'sets the id' do
+      expect(subject.id).to eq(id)
     end
 
-    it 'should initialize an empty items collection' do
-      expect(genre.items).to be_empty
+    it 'initializes an empty items array' do
+      expect(subject.items).to be_empty
     end
   end
 
   describe '#add_item' do
-    it 'should add the item to the items collection' do
-      genre.add_item(item)
-      expect(genre.items).to include(item)
+    it 'adds the item to the items array' do
+      subject.add_item(item)
+      expect(subject.items).to include(item)
     end
 
-    it 'should set self as a property of the item object' do
-      expect(item).to receive(:genres=).with(genre)
-      genre.add_item(item)
+    it 'sets the genre on the item' do
+      expect(item).to receive(:genre=).with(subject)
+      subject.add_item(item)
     end
   end
 end

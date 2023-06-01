@@ -10,7 +10,7 @@ describe MusicAlbum do
       expect(@music).to be_instance_of MusicAlbum
     end
     it 'return true for the can be archived method' do
-      expect(@music.can_be_archived?).to be nil
+      expect(@music.can_be_archived?).to be true
     end
   end
 end
