@@ -4,19 +4,17 @@ require_relative 'item'
 require_relative 'game'
 require_relative './store/preserve_data'
 require_relative 'author'
-require 'json'
-require 'date'
 require_relative './src/music/genre'
 require_relative './src/music/music_album'
 require_relative './handler'
+require 'json'
+require 'date'
 
 class App < Handler
   def initialize
     super
     @genres = []
     @music_albums = []
-
-    # @storage = Storage.new(self)
     @store = PreserveData.new
     @books = File.empty?('./store/books.json') ? [] : @store.load_data('./store/books.json')
     @labels = File.empty?('./store/labels.json') ? [] : @store.load_data('./store/labels.json')

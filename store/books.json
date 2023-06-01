@@ -106,5 +106,17 @@
       "title": "trer",
       "color": "fgfdg"
     }
+  },
+  {
+    "id": 767,
+    "author": "a",
+    "published_date": "2012",
+    "publisher": "pub",
+    "cover_state": "bad",
+    "label": {
+      "id": 544,
+      "title": "science",
+      "color": "red"
+    }
   }
 ]

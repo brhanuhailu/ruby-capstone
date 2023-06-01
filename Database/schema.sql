@@ -12,13 +12,12 @@ CREATE TABLE label (
 -- create book table
 CREATE TABLE book (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    author TEXT,
+    author_id INT REFERENCES author(id),
     published_date DATE,
     publisher TEXT,
     archived BOOLEAN NOT NULL DEFAULT FALSE,
     cover_state VARCHAR(5),
-    label_id int REFERENCES label(id),
-    genre TEXT
+    label_id INT REFERENCES label(id)
 );
 
 -- create game table
