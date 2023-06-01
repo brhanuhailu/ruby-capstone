@@ -82,5 +82,29 @@
       "title": "iction",
       "color": "red"
     }
+  },
+  {
+    "id": 82,
+    "author": "yodi",
+    "published_date": "2023-2-1",
+    "publisher": "puplisher",
+    "cover_state": "good",
+    "label": {
+      "id": 569,
+      "title": "title",
+      "color": "color"
+    }
+  },
+  {
+    "id": 901,
+    "author": "dfsdf",
+    "published_date": "2023-2-2",
+    "publisher": "ghgh",
+    "cover_state": "goood",
+    "label": {
+      "id": 323,
+      "title": "trer",
+      "color": "fgfdg"
+    }
   }
 ]

@@ -47,7 +47,7 @@ class MainMenu
   end
 
   def list_music(app)
-    app.list_music
+    app.albums
   end
 
   def list_games(app)
@@ -55,7 +55,7 @@ class MainMenu
   end
 
   def list_genres(app)
-    app.list_genres
+    app.genres
   end
 
   def list_labels(app)
@@ -71,7 +71,7 @@ class MainMenu
   end
 
   def create_music(app)
-    app.create_music
+    app.add_music_album
   end
 
   def create_games(app)

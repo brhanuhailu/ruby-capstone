@@ -6,8 +6,8 @@ require_relative './store/preserve_data'
 require_relative 'author'
 require 'json'
 require 'date'
-require_relative './src/genre'
-require_relative './src/music_album'
+require_relative './src/music/genre'
+require_relative './src/music/music_album'
 require_relative './handler'
 
 class App < Handler
@@ -98,7 +98,7 @@ class App < Handler
       puts 'List of Authors:'
       puts '=============================================:'
       puts 'ID - First Name - Last Name'
-      authors.each do |author|
+      @authors.each do |author|
         puts "#{author['id']} - #{author['first_name']} - #{author['last_name']}"
       end
       puts '=============================================:'
@@ -119,8 +119,8 @@ class App < Handler
     puts 'Enter last name'
     last_name = gets.chomp
     author = create_author(first_name, last_name)
-    authors << author
-    @store.save_data(authors, './store/authors.json')
+    @authors << author
+    @store.save_data(@authors, './store/authors.json')
     game = create_game_object(game_name, last_played_at, publish_date, multiplayer)
     @games << game
     @store.save_data(@games, './store/games.json')

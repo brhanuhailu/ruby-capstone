@@ -1,5 +1,5 @@
-require_relative './music/music_album'
-require_relative './music/genre'
+require_relative './src/music/music_album'
+require_relative './src/music/genre'
 require_relative './app'
 require 'json'
 
