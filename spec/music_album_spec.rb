@@ -5,7 +5,6 @@ describe MusicAlbum do
     before :each do
       @music = MusicAlbum.new('Kaweesi', '2013-09-03', true)
     end
-
     it 'creates an instance of the music album class' do
       expect(@music).to be_instance_of MusicAlbum
     end

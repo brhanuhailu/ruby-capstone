@@ -11,6 +11,8 @@
 # All data should be preserved by saving collections in .json files.
 # Create a schema.sql file with tables that will be analogical to the structure of the classes that you created:
 # genres table
+# genre.rb
+
 class Genre
   attr_reader :items, :name, :id
 
