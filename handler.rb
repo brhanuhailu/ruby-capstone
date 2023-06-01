@@ -1,4 +1,5 @@
 require_relative './store'
+require_relative 'storage'
 
 class Handler
   include JsonStorage
