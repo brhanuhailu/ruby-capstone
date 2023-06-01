@@ -6,9 +6,17 @@ require_relative './store/preserve_data'
 require_relative 'author'
 require 'json'
 require 'date'
+require_relative './src/genre'
+require_relative './src/music_album'
+require_relative './handler'
 
-class App
+class App < Handler
   def initialize
+    super
+    @genres = []
+    @music_albums = []
+
+    # @storage = Storage.new(self)
     @store = PreserveData.new
     @books = File.empty?('./store/books.json') ? [] : @store.load_data('./store/books.json')
     @labels = File.empty?('./store/labels.json') ? [] : @store.load_data('./store/labels.json')
@@ -90,7 +98,7 @@ class App
       puts 'List of Authors:'
       puts '=============================================:'
       puts 'ID - First Name - Last Name'
-      @authors.each do |author|
+      authors.each do |author|
         puts "#{author['id']} - #{author['first_name']} - #{author['last_name']}"
       end
       puts '=============================================:'
@@ -111,8 +119,8 @@ class App
     puts 'Enter last name'
     last_name = gets.chomp
     author = create_author(first_name, last_name)
-    @authors << author
-    @store.save_data(@authors, './store/authors.json')
+    authors << author
+    @store.save_data(authors, './store/authors.json')
     game = create_game_object(game_name, last_played_at, publish_date, multiplayer)
     @games << game
     @store.save_data(@games, './store/games.json')
