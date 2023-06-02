@@ -1,3 +1,4 @@
+require_relative './spec_helper'
 RSpec.describe Author do
   describe '#add_author' do
     let(:author) { Author.new('John', 'Doe') }

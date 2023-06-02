@@ -40,5 +40,12 @@
     "last_played_at": "2023-02-01",
     "publish_date": "2023-02-03",
     "multiplayer": true
+  },
+  {
+    "id": 229,
+    "game_name": "mario",
+    "last_played_at": "2023-09-01",
+    "publish_date": "1990-04-03",
+    "multiplayer": true
   }
 ]
