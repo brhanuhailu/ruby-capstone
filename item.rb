@@ -1,9 +1,8 @@
 require 'date'
-require_relative 'label'
 
 class Item
-  attr_reader :id, :archived, :label
-  attr_accessor :genre, :author, :published_date
+  attr_reader :id, :label, :author, :genre
+  attr_accessor :published_date, :archived
 
   def initialize(genre, author, published_date, label = nil)
     @id = Random.rand(1..1000)
@@ -25,6 +24,16 @@ class Item
 
   def label=(label)
     @label = label
-    label.add_item(self)
+    label.add_item(self) unless label.items.include?(self)
+  end
+
+  def author=(author)
+    @author = author
+    author.add_author(self) unless author.items.include?(self)
+  end
+
+  def genre=(genre)
+    @genre = genre
+    genre.add_item(self) unless genre.items.include?(self)
   end
 end
