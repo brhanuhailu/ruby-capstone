@@ -118,5 +118,17 @@
       "title": "science",
       "color": "red"
     }
+  },
+  {
+    "id": 418,
+    "author": "e",
+    "published_date": "56",
+    "publisher": "p",
+    "cover_state": "bad",
+    "label": {
+      "id": 462,
+      "title": "la",
+      "color": "c"
+    }
   }
 ]
