@@ -47,5 +47,12 @@
     "last_played_at": "2023-09-01",
     "publish_date": "1990-04-03",
     "multiplayer": true
+  },
+  {
+    "id": 826,
+    "game_name": "game",
+    "last_played_at": "2010-02-01",
+    "publish_date": "1998-02-01",
+    "multiplayer": true
   }
 ]
